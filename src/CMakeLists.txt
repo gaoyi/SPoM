@@ -66,7 +66,7 @@ set(namicLibraries ${VTK_LIBRARIES} ${itkLibraries})
 
 ################################################################################
 # alglib
-set(ALGLIB_PATH ${PROJECT_SOURCE_DIR}/lib/alglib-3.5.0.cpp/src)
+set(ALGLIB_PATH ${PROJECT_SOURCE_DIR}/../alglib/src)
 
 find_path(ALGLIB_PATH ap.h)
 if(NOT ALGLIB_PATH)
