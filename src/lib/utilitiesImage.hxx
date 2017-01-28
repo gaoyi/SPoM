@@ -87,7 +87,7 @@ namespace ShapeAnalysis
 
 
   template<typename image_t>
-  double getVol(typename image_t::Pointer img, typename image_t::PixelType thld = 0)
+  double getVol(typename image_t::Pointer img, typename image_t::PixelType thld)
   {
     typedef itk::ImageRegionConstIterator<image_t> ImageRegionConstIterator_t;
     ImageRegionConstIterator_t it(img, img->GetLargestPossibleRegion() );

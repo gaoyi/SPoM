@@ -77,20 +77,20 @@ include_directories(${ALGLIB_PATH})
 #lind_directories(../)
 
 add_library(alglib
-    ${ALGLIB_PATH}/alglibinternal.cpp
-    ${ALGLIB_PATH}/alglibmisc.cpp
-    ${ALGLIB_PATH}/ap.cpp
-    ${ALGLIB_PATH}/dataanalysis.cpp
-    ${ALGLIB_PATH}/diffequations.cpp
-    ${ALGLIB_PATH}/fasttransforms.cpp
-    ${ALGLIB_PATH}/integration.cpp
-    ${ALGLIB_PATH}/interpolation.cpp
-    ${ALGLIB_PATH}/linalg.cpp
-    ${ALGLIB_PATH}/optimization.cpp
-    ${ALGLIB_PATH}/solvers.cpp
-    ${ALGLIB_PATH}/specialfunctions.cpp
-    ${ALGLIB_PATH}/statistics.cpp
-)
+  ${ALGLIB_PATH}/alglibinternal.cpp
+  ${ALGLIB_PATH}/alglibmisc.cpp
+  ${ALGLIB_PATH}/ap.cpp
+  ${ALGLIB_PATH}/dataanalysis.cpp
+  ${ALGLIB_PATH}/diffequations.cpp
+  ${ALGLIB_PATH}/fasttransforms.cpp
+  ${ALGLIB_PATH}/integration.cpp
+  ${ALGLIB_PATH}/interpolation.cpp
+  ${ALGLIB_PATH}/linalg.cpp
+  ${ALGLIB_PATH}/optimization.cpp
+  ${ALGLIB_PATH}/solvers.cpp
+  ${ALGLIB_PATH}/specialfunctions.cpp
+  ${ALGLIB_PATH}/statistics.cpp
+  )
 
 
 ################################################################################
