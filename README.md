@@ -20,6 +20,15 @@ equation solver using ITK (VNL) sparse system.
 * CMake (cmake.org)
 * ITK (itk.org, Compilation needed)
 * alglib library
+* GNU gsl
+
+### Docker
+
+The built version is also available on Docker: https://hub.docker.com/r/gaoyi/spom/
+
+```bash
+docker pull gaoyi/spom
+```
 
 
 ### Who do I talk to? ###
