@@ -44,6 +44,7 @@ RUN mv cpp alglib
 
 
 # compile SPoM
+WORKDIR /tmp
 RUN git clone https://github.com/gaoyi/SPoM.git
 WORKDIR /tmp/SPoM/
 RUN git pull
