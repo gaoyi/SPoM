@@ -19,8 +19,8 @@ RUN apt-get install -y \
 # Instal VTK
 WORKDIR /tmp/
 RUN git clone http://vtk.org/VTK.git
-# WORKDIR /tmp/VTK/
-# RUN git pull
+WORKDIR /tmp/VTK/
+RUN git pull
 WORKDIR /tmp/VTK/build/
 RUN cmake -DCMAKE_BUILD_TYPE:STRING=Release -DBUILD_EXAMPLES:BOOL=OFF -DBUILD_TESTING:BOOL=OFF ..
 RUN make -j$(nproc)
@@ -29,8 +29,8 @@ RUN make -j$(nproc)
 # Instal ITK
 WORKDIR /tmp/
 RUN git clone http://itk.org/ITK.git
-# WORKDIR /tmp/ITK/
-# RUN git pull
+WORKDIR /tmp/ITK/
+RUN git pull
 WORKDIR /tmp/ITK/build/
 RUN cmake -DCMAKE_BUILD_TYPE:STRING=Release -DVTK_DIR:STRING=/tmp/VTK/build -DBUILD_EXAMPLES:BOOL=OFF -DBUILD_TESTING:BOOL=OFF -DBUILD_TESTS:BOOL=OFF -DModule_ITKReview:BOOL=ON -DModule_ITKVtkGlue:BOOL=ON ..
 RUN make -j$(nproc)
@@ -53,20 +53,9 @@ RUN cmake -DCMAKE_BUILD_TYPE:STRING=Release -DVTK_DIR:STRING=/tmp/VTK/build -DIT
 RUN make -j$(nproc)
 
 
-# COPY .  /HelloWorld
-# WORKDIR /HelloWorld/src/build/
-# RUN cmake -DCMAKE_BUILD_TYPE:STRING=Release -DITK_DIR:STRING=/tmp/ITK/build ..
-# RUN make -j$(nproc)
-# # CMD ["./mainCxx"]
 
 
-# # Normal user
-# RUN useradd -m itk
-# RUN echo 'root:itk' | chpasswd
-# RUN echo 'itk:itk' | chpasswd
-# ENV HOME /home/itk
-# USER itk
-# WORKDIR /home/itk
-# RUN mkdir /home/itk/src
-# RUN mkdir /home/itk/bin
-# CMD ["/bin/bash"]
+WORKDIR /tmp/SPoM/build/sumOfTwoPoisson
+
+
+CMD ["/bin/bash"]
