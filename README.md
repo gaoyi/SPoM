@@ -30,6 +30,22 @@ The built version is also available on Docker: https://hub.docker.com/r/gaoyi/sp
 docker pull gaoyi/spom
 ```
 
+### How to use:
+Give two sets of shapes, this software/algorithm performs statistal analysis on them. It output the average/mean shape of the input shapes. Moreover, on the mean shape, the locations where the two groups have significant difference are highlighted.
+
+* Compile the code so you have the executable file named "mainSumOfTwoPoissonShapeAnalysis"
+* Save the two groups of shapes to be analyzed as binary volumetric images. Could be in the format of nifti, nrrd, mhd/mha, etc.
+* Put the full path/names of the image names of one shape group into a text file, say list1.txt
+* Put the full path/names of the image names of the other shape group into a text file, say list2.txt
+* Run 
+  * * If the input shapes have ALREADY been registered, run:
+```bash
+./path-to/mainSumOfTwoPoissonShapeAnalysis list1.txt list2.txt meanImageName.nrrd meanVTPName.vtp 0
+```
+* * If the input shapes have NOT been registered, 
+```bash
+./path-to/mainSumOfTwoPoissonShapeAnalysis list1.txt list2.txt meanImageName.nrrd meanVTPName.vtp 1
+```
 
 ### Who do I talk to? ###
 
