@@ -38,11 +38,11 @@ Give two sets of shapes, this software/algorithm performs statistal analysis on 
 * Put the full path/names of the image names of one shape group into a text file, say list1.txt
 * Put the full path/names of the image names of the other shape group into a text file, say list2.txt
 * Run 
-  * * If the input shapes have ALREADY been registered, run:
+  * If the input shapes have ALREADY been registered, run:
 ```bash
 ./path-to/mainSumOfTwoPoissonShapeAnalysis list1.txt list2.txt meanImageName.nrrd meanVTPName.vtp 0
 ```
-* * If the input shapes have NOT been registered, 
+  * If the input shapes have NOT been registered, 
 ```bash
 ./path-to/mainSumOfTwoPoissonShapeAnalysis list1.txt list2.txt meanImageName.nrrd meanVTPName.vtp 1
 ```
