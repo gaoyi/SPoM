@@ -78,7 +78,7 @@ namespace ShapeAnalysis
     vtkSmartPointer<vtkCellArray> triangleStrips = polyData->GetStrips();
 
 
-    vtkIdType* cellPoints;
+    const vtkIdType* cellPoints;
     vtkIdType numberOfCellPoints;
 
     /// First count the total number of triangles from all the triangle strips.

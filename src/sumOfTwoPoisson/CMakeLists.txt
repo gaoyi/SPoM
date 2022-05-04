@@ -25,8 +25,11 @@ include_directories( lib )
 option(build_mainSumOfTwoPoissonShapeAnalysis "build mainSumOfTwoPoissonShapeAnalysis?" ON)
 if (build_mainSumOfTwoPoissonShapeAnalysis)
     set(cexx mainSumOfTwoPoissonShapeAnalysis)
-    add_executable(${cexx} ${cexx}.cxx)
-    target_link_libraries(${cexx} alglib localLibrary ${namicLibraries})
+    # add_executable(${cexx} ${cexx}.cxx )
+    # target_link_libraries(${cexx} alglib localLibrary ${namicLibraries})
+
+    add_executable(${cexx} ${cexx}.cxx ${headerAndLibDir}/itkVtkMeshConversion.cxx)
+    target_link_libraries(${cexx} alglib ${namicLibraries})
 endif (build_mainSumOfTwoPoissonShapeAnalysis)
 
 

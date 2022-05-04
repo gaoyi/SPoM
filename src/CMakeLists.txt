@@ -27,6 +27,28 @@ set(CMAKE_C_FLAGS "-fopenmp")
 
 
 ################################################################################
+# VTK
+find_package(VTK COMPONENTS REQUIRED
+  vtkCommonColor
+  vtkCommonCore
+  vtkCommonDataModel
+  vtkInteractionStyle
+  vtkRenderingContextOpenGL2
+  vtkRenderingCore
+  vtkRenderingFreeType
+  vtkRenderingGL2PSOpenGL2
+  vtkRenderingOpenGL2
+  QUIET
+            )
+
+if (NOT VTK_FOUND)
+  message("Skipping Dodecahedron: ${VTK_NOT_FOUND_MESSAGE}")
+  return()
+endif()
+message (STATUS "VTK_VERSION: ${VTK_VERSION}")
+
+
+################################################################################
 ################################
 # include ITK, to avoid setting it everytime, do:
 # set the environment variable ITK_DIR to the dir containing ITKConfig.cmake in .bashrc
@@ -39,12 +61,10 @@ if (ITK_FOUND)
    include(${ITK_USE_FILE})
 endif(ITK_FOUND)
 
-################################################################################
-# VTK
-find_package (VTK)
-if (VTK_FOUND)
-   include(${VTK_USE_FILE})
-endif(VTK_FOUND)
+
+# if (VTK_FOUND)
+#    include(${VTK_USE_FILE})
+# endif(VTK_FOUND)
 
 ################################################################################
 # find gsl path
@@ -56,8 +76,6 @@ endif(NOT GSL_INSTALLATION_PATH)
 include_directories(${GSL_INSTALLATION_PATH}/include)
 
 set(gslLibs ${GSL_INSTALLATION_PATH}/lib/libgsl.a)
-
-
 
 set(itkLibraries ITKQuadEdgeMesh ${ITK_LIBRARIES})
 
@@ -103,8 +121,7 @@ add_library(alglib
 set(headerAndLibDir ${PROJECT_SOURCE_DIR}/lib)
 include_directories(${headerAndLibDir})
 
-
-add_library(localLibrary ${headerAndLibDir}/itkVtkMeshConversion.cxx)
+#add_library(localLibrary ${headerAndLibDir}/itkVtkMeshConversion.cxx)
 
 
 ################################################################################
