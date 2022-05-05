@@ -1,5 +1,5 @@
 #include "lib/utilitiesIO.h"
-#include "sumOfTwoPoisson/lib/SumOfTwoPoissonShapeAnalysis.h"
+#include "lib/SumOfTwoPoissonShapeAnalysis.h"
 
 #include "itkPluginUtilities.h"
 

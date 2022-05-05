@@ -102,7 +102,6 @@ set(itkLibraries ITKQuadEdgeMesh ${ITK_LIBRARIES})
 #-----------------------------------------------------------------------------
 set(MODULE_INCLUDE_DIRECTORIES
     lib
-    sumOfTwoPoisson
   )
 
 
