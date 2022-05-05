@@ -115,13 +115,13 @@ add_library(alglib
 
 
 
-
 ################################################################################
 # local headers and libs
 set(headerAndLibDir ${PROJECT_SOURCE_DIR}/lib)
 include_directories(${headerAndLibDir})
 
-#add_library(localLibrary ${headerAndLibDir}/itkVtkMeshConversion.cxx)
+add_library(localLibrary ${headerAndLibDir}/itkVtkMeshConversion.cxx)
+target_link_libraries(localLibrary alglib ${namicLibraries})
 
 
 ################################################################################
