@@ -1,2 +1,0 @@
-../../data/CARMA0046_post_laendo.nrrd
-../../data/CARMA0072_post_laendo.nrrd
