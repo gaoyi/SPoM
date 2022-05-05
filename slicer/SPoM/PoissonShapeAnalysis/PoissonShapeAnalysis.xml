@@ -11,27 +11,43 @@
   <parameters>
     <label>IO</label>
     <description><![CDATA[Input/output parameters]]></description>
-    <double>
-      <name>sigma</name>
-      <longflag>sigma</longflag>
-      <flag>s</flag>
-      <label>Sigma</label>
-      <description><![CDATA[A double value (in units of mm) passed to the algorithm]]></description>
-      <default>1.0</default>
-    </double>
-    <image>
-      <name>inputVolume</name>
-      <label>Input Volume</label>
+    <file multiple="true">
+      <name>shapeNameList1</name>
+      <longflag>shapeNameList1</longflag>
+      <flag>a</flag>
+      <label>Shape Name List 1</label>
+      <description><![CDATA[The shape files of group 1]]></description>
       <channel>input</channel>
-      <index>0</index>
-      <description><![CDATA[Input volume]]></description>
-    </image>
+    </file>
+    <file multiple="true">
+      <name>shapeNameList2</name>
+      <longflag>shapeNameList2</longflag>
+      <flag>b</flag>
+      <label>Shape Name List 2</label>
+      <description><![CDATA[The shape files of group 2]]></description>
+      <channel>input</channel>
+    </file>
+    <boolean>
+      <name>doRegistration</name>
+      <flag>r</flag>
+      <longflag>doRegistration</longflag>
+      <channel>input</channel>
+      <default>false</default>
+      <description><![CDATA[Wherther to perform registration of the shapes before SPoM analysis]]></description>
+    </boolean>
     <image>
-      <name>outputVolume</name>
-      <label>Output Volume</label>
+      <name>meanImageName</name>
+      <label>Output Mean Shape Volume</label>
+      <longflag>meanImageName</longflag>
       <channel>output</channel>
-      <index>1</index>
-      <description><![CDATA[Output Volume]]></description>
+      <description><![CDATA[Output Mean Shape Volume]]></description>
     </image>
+    <geometry type="model">
+      <name>meanVTKName</name>
+      <label>Output Model</label>
+      <channel>output</channel>
+      <longflag>meanVTKName</longflag>
+      <description><![CDATA[Output model]]></description>
+    </geometry>
   </parameters>
 </executable>
