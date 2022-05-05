@@ -4,9 +4,9 @@ project(SPoM)
 
 #-----------------------------------------------------------------------------
 # Extension meta-information
-set(EXTENSION_HOMEPAGE "https://www.slicer.org/wiki/Documentation/Nightly/Extensions/SPoM")
+set(EXTENSION_HOMEPAGE "https://github.com/gaoyi/SPoM")
 set(EXTENSION_CATEGORY "Shape analysis")
-set(EXTENSION_CONTRIBUTORS "Yi Gao (Shenzhen University), Sylvain Bouix (BWH), Tammy")
+set(EXTENSION_CONTRIBUTORS "Yi Gao (Shenzhen University), Sylvain Bouix (BWH)")
 set(EXTENSION_DESCRIPTION "This extension uses the Signed Poisson equations to perform statistical shape analysis.")
 set(EXTENSION_ICONURL "https://www.example.com/Slicer/Extensions/SPoM.png")
 set(EXTENSION_SCREENSHOTURLS "https://www.example.com/Slicer/Extensions/SPoM/Screenshots/1.png")

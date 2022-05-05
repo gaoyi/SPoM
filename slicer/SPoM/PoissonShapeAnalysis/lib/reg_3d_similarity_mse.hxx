@@ -69,7 +69,7 @@ namespace ShapeAnalysis
     registration->SetMetric(        metric        );
     registration->SetOptimizer(     optimizer     );
     registration->SetInterpolator(  interpolator  );
-    
+
     if (numThreads != -1 && numThreads >= 1 && numThreads <= 32)
       {
         // I don't have SMP with 32 cores.

@@ -349,120 +349,6 @@ namespace ShapeAnalysis
       }
 
 
-    // //dbg
-    // writeImage<FloatImageType>(m_meanShape, "m_meanShape.nrrd");
-    // //dbg, end
-
-//     // register all shapes to this tmp mean shape
-
-// todo
-
-//     std::cout<<"2nd round similarity registration of group-1 (totally "<<n1<<" ) shapes.\n   "<<std::flush;
-//     for (long it = 0; it < n1; ++it)
-//       {
-//         std::cout<<it<<", "<<std::flush;
-
-//         double finalCost = 0.0;
-//         typedef itk::Similarity3DTransform<double> SimilarityTransformType;
-//         typename SimilarityTransformType::Pointer trans = SimilarityTransformType::New();
-//         if (m_performRegistration)
-//           {
-//             trans = similarityMSERegistration<FloatImageType, FloatImageType>(tmpMeanShape, \
-//                                                                               m_similarityRegisteredShapeGroup1[it], \
-//                                                                               finalCost);
-//           }
-//         else
-//           {
-//             trans->SetIdentity();
-//           }
-
-//         FloatType fillInValue = 0.0;
-//         char interpolationType = 1; // linear interp
-
-//         FloatImagePointer registeredShape                               \
-//           = transformImage<FloatImageType, FloatImageType, FloatImageType>(trans, m_similarityRegisteredShapeGroup1[it], \
-//                                                                            tmpMeanShape, \
-//                                                                            fillInValue, interpolationType);
-
-
-//         // //dbg
-//         // char fileName[255];
-//         // sprintf(fileName, "reg1_%ld.nrrd", it);
-//         // writeImage<FloatImageType>(registeredShape, fileName);
-//         // //dbg, end
-
-//         m_similarityRegisteredShapeGroup1[it] = registeredShape;
-
-//         typedef itk::AddImageFilter< FloatImageType, FloatImageType, FloatImageType > AddImageFilterType;
-//         typename AddImageFilterType::Pointer addFilter = AddImageFilterType::New();
-//         addFilter->SetInput1(m_meanShape);
-//         addFilter->SetInput2(registeredShape);
-//         addFilter->Update();
-
-//         m_meanShape = addFilter->GetOutput();
-//       }
-//     std::cout<<std::endl;
-
-//     std::cout<<"2nd round similarity registration of group-2 (totally "<<n2<<" ) shapes.\n   "<<std::flush;
-//     for (long it = 0; it < n2; ++it)
-//       {
-//         std::cout<<it<<", "<<std::flush;
-
-//         double finalCost = 0.0;
-//         typedef itk::Similarity3DTransform<double> SimilarityTransformType;
-
-//         typename SimilarityTransformType::Pointer trans = SimilarityTransformType::New();
-//         if (m_performRegistration)
-//           {
-//             trans = similarityMSERegistration<FloatImageType, FloatImageType>(tmpMeanShape, \
-//                                                                               m_similarityRegisteredShapeGroup2[it], \
-//                                                                               finalCost);
-//           }
-//         else
-//           {
-//             trans->SetIdentity();
-//           }
-
-//         FloatType fillInValue = 0.0;
-//         char interpolationType = 1; // linear interp
-
-//         FloatImagePointer registeredShape                               \
-//           = transformImage<FloatImageType, FloatImageType, FloatImageType>(trans, m_similarityRegisteredShapeGroup2[it], \
-//                                                                            tmpMeanShape, \
-//                                                                            fillInValue, interpolationType);
-
-//         // // dbg
-//         // char fileName[255];
-//         // sprintf(fileName, "reg2_%ld.nrrd", it);
-//         // writeImage<FloatImageType>(registeredShape, fileName);
-//         // // dbg,end
-
-//         m_similarityRegisteredShapeGroup2[it] = registeredShape;
-
-//         typedef itk::AddImageFilter< FloatImageType, FloatImageType, FloatImageType > AddImageFilterType;
-//         typename AddImageFilterType::Pointer addFilter = AddImageFilterType::New();
-//         addFilter->SetInput1(m_meanShape);
-//         addFilter->SetInput2(registeredShape);
-//         addFilter->Update();
-
-//         m_meanShape = addFilter->GetOutput();
-//       }
-//     std::cout<<std::endl;
-
-//     // divide meanShape by n, the divideByConstantImageFilter seems to be in the deprecated category? so i just do it
-//     {
-//       typedef itk::ImageRegionIterator<FloatImageType> ImageRegionIterator;
-
-//       FloatType nn = static_cast<FloatType>(n);
-
-//       ImageRegionIterator it(m_meanShape, m_meanShape->GetLargestPossibleRegion());
-//       for (it.GoToBegin(); !it.IsAtEnd(); ++it)
-//         {
-//           it.Set(it.Get()/nn);
-//         }
-//     }
-
-
     /**
      * Now, we have the mean shape and all the shapes are registered
      * to it with similarity trans.
@@ -538,7 +424,6 @@ namespace ShapeAnalysis
     std::cout<<"Computeing Poisson map of group 1, totally "<<m_similarityRegisteredShapeGroup1.size()<<" shapes. \n   "<<std::flush;
     m_poissonMapGroup1.resize(m_similarityRegisteredShapeGroup1.size());
 
-#pragma omp parallel for
     for (std::size_t it = 0; it < m_similarityRegisteredShapeGroup1.size(); ++it)
       {
         std::cout<<it<<", "<<std::flush;
@@ -568,7 +453,6 @@ namespace ShapeAnalysis
     std::cout<<"Computeing Poisson map of group 2, totally "<<m_similarityRegisteredShapeGroup2.size()<<" shapes. \n   "<<std::flush;
     m_poissonMapGroup2.resize(m_similarityRegisteredShapeGroup2.size());
 
-#pragma omp parallel for
     for (std::size_t it = 0; it < m_similarityRegisteredShapeGroup2.size(); ++it)
       {
         std::cout<<it<<", "<<std::flush;

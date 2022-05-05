@@ -43,7 +43,7 @@ namespace ShapeAnalysis
     // checked.
     typedef vnl_vector<DataType> VNLVectorType;
 
-    long numUnknowns = A.cols();
+    unsigned long numUnknowns = A.cols();
 
     if (x.size() != numUnknowns)
       {
@@ -56,7 +56,7 @@ namespace ShapeAnalysis
 
     // Jacobi preconditioner
     VNLVectorType Dinv(numUnknowns);
-    for ( long ip = 0; ip < numUnknowns; ++ip )
+    for (unsigned long ip = 0; ip < numUnknowns; ++ip )
       {
         Dinv[ip] = 1.0 / ( A(ip, ip) + vnl_math::eps );
 
@@ -101,7 +101,7 @@ namespace ShapeAnalysis
             break;
           }
 
-        for ( long id = 0; id < numUnknowns; ++id )
+        for ( unsigned long id = 0; id < numUnknowns; ++id )
           {
             zx[id] = rx[id] * Dinv[id];
           }

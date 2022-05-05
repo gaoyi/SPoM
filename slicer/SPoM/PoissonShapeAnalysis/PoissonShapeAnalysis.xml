@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <executable>
-  <category>Examples</category>
+  <category>Shape Analysis</category>
   <title>PoissonShapeAnalysis</title>
-  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <description><![CDATA[This is a CLI module that performs the 3D shape analysis using the SPoM method proposed in this paper: Gao Y, Bouix S. Statistical Shape Analysis using 3D Poisson Equation---A Quantitatively Validated Approach. Medical Image Analysis. 2016 Jan 15]]></description>
   <version>0.0.1</version>
-  <documentation-url>https://github.com/username/project</documentation-url>
+  <documentation-url>https://github.com/gaoyi/SPoM</documentation-url>
   <license>Slicer</license>
-  <contributor>FirstName LastName (Institution), FirstName LastName (Institution)</contributor>
-  <acknowledgements>This work was partially funded by NIH grant NXNNXXNNNNNN-NNXN</acknowledgements>
+  <contributor>Yi Gao (Shenzhen University), Sylvain Bouix (BWH)</contributor>
+  <acknowledgements>This work was partially funded by NIH R01 MH82918. This work is partially suppored by the Key-Area Research and Development Program of Guangdong Province grant 2021B0101420005, the Key Technology Development Program of Shenzhen grant JSGG20210713091811036, the Department of Education of Guangdong Province grant 2017KZDXM072, the National Natural Science Foundation of China grant 61601302, the Shenzhen Key Laboratory Foundation grant ZDSYS20200811143757022, the Shenzhen Peacock Plan grant KQTD2016053112051497, and the SZU Top Ranking Project grant 86000000210.</acknowledgements>
   <parameters>
     <label>IO</label>
     <description><![CDATA[Input/output parameters]]></description>
@@ -30,6 +30,7 @@
     <boolean>
       <name>doRegistration</name>
       <flag>r</flag>
+      <label>Perform shape registration first?</label>
       <longflag>doRegistration</longflag>
       <channel>input</channel>
       <default>false</default>
